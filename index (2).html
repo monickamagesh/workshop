@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Aman Verma — Learn Tech. Build Skills. Stay Ahead.</title>
+  <style>
+    :root {
+      --bg-dark: #0a0e17;
+      --bg-card: #1c1f29;
+      --bg-input: #181b25;
+      --text-primary: #dfe2ef;
+      --text-secondary: #bcc9cd;
+      --text-accent: #4cd7f6;
+      --accent-orange: #ffb95f;
+      --accent-red: #ffb4ab;
+      --border: #262a34;
+      --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+      line-height: 1.6;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(15, 19, 28, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 80px;
+    }
+
+    .header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--text-primary);
+    }
+
+    .logo img {
+      width: 32px;
+      height: 32px;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:first-child {
+      color: var(--text-accent);
+    }
+
+    nav a:hover {
+      color: var(--text-accent);
+    }
+
+    .cta-button {
+      background: var(--accent-orange);
+      color: #2a1700;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* MAIN CONTENT */
+    main {
+      margin-top: 80px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 96px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      padding: 4px 16px;
+      border-radius: 9999px;
+      width: fit-content;
+      font-size: 13px;
+      color: var(--text-accent);
+      font-weight: 600;
+    }
+
+    .live-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--text-accent);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-size: 56px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--text-accent) 0%, #adc6ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: var(--text-accent);
+      font-weight: 600;
+    }
+
+    .description {
+      font-size: 18px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 576px;
+    }
+
+    .price-highlight {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--accent-orange);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .price-highlight::before {
+      content: '⚡';
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #06b6d4 0%, #4cd7f6 50%, #acedff 100%);
+      color: #003640;
+      padding: 16px 40px;
+      border-radius: 12px;
+      border: none;
+      font-weight: 700;
+      font-size: 20px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      box-shadow: 0 0 30px -5px rgba(76, 215, 246, 0.45);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: none;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+    }
+
+    .trust-copy {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 512px;
+      margin-top: 24px;
+    }
+
+    .stat {
+      background: var(--bg-card);
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .stat:nth-child(2) .stat-value {
+      color: var(--text-accent);
+    }
+
+    .stat:nth-child(3) .stat-value {
+      color: var(--accent-orange);
+    }
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 16px;
+      max-width: 448px;
+      box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .hero-card img {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .hero-card-bottom {
+      padding: 16px;
+      color: var(--text-primary);
+    }
+
+    .hero-card-name {
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .hero-card-title {
+      font-size: 13px;
+      color: var(--text-accent);
+      font-family: monospace;
+    }
+
+    .hero-card-tags {
+      display: flex;
+      gap: 4px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      background: #31353f;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    /* WEBINAR INFO SECTION */
+    .webinar-section {
+      background: #0f131c;
+      padding: 64px 24px;
+      margin-top: 80px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-accent);
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    .pillar {
+      background: var(--bg-card);
+      padding: 24px;
+      border-radius: 16px;
+    }
+
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(76, 215, 246, 0.1);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pillar h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text-primary);
+    }
+
+    .pillar p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .upcoming-webinar {
+      background: linear-gradient(180deg, #262a34 0%, #1c1f29 100%);
+      border-top: 4px solid var(--text-accent);
+      padding: 40px;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .upcoming-webinar-header {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 16px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .badge-orange {
+      background: var(--accent-orange);
+      color: #2a1700;
+    }
+
+    .badge-gray {
+      background: #31353f;
+      color: var(--text-secondary);
+      font-family: monospace;
+    }
+
+    .webinar-details {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .detail-item {
+      background: rgba(10, 14, 23, 0.6);
+      padding: 18px 8px;
+      border-radius: 12px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .detail-item h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .detail-item p {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .webinar-callout {
+      background: #0a0e17;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .price-display {
+      font-size: 56px;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--text-accent) 0%, #adc6ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .seat-bar {
+      margin: 24px 0;
+    }
+
+    .seat-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .progress-bar {
+      background: var(--bg-card);
+      height: 8px;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background: linear-gradient(90deg, var(--text-accent), var(--accent-orange));
+      height: 100%;
+      width: 80%;
+    }
+
+    .btn-reserve {
+      width: 100%;
+      background: var(--text-accent);
+      color: #003640;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 20px;
+      cursor: pointer;
+      margin-top: 16px;
+      box-shadow: 0 0 10px rgba(76, 215, 246, 0.35);
+      transition: transform 0.2s;
+    }
+
+    .btn-reserve:hover {
+      transform: translateY(-2px);
+    }
+
+    /* YOUTUBE ARCHIVE SECTION */
+    .youtube-section {
+      background: #0f131c;
+      padding: 64px 24px;
+      margin-top: 80px;
+    }
+
+    .youtube-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .youtube-text h2 {
+      margin-bottom: 24px;
+    }
+
+    .btn-youtube {
+      background: #93000a;
+      color: #ffdad6;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      transition: transform 0.2s;
+    }
+
+    .btn-youtube:hover {
+      transform: translateY(-2px);
+    }
+
+    .category-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .category-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-preview {
+      background: #0a0e17;
+      padding: 16px;
+      height: 176px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .category-code {
+      font-family: monospace;
+      font-size: 13px;
+      color: var(--text-accent);
+      line-height: 1.5;
+    }
+
+    .category-views {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .category-info {
+      padding: 16px;
+    }
+
+    .category-info h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .category-info p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* FAQ SECTION */
+    .faq-section {
+      background: #0f131c;
+      padding: 96px 24px;
+      margin-top: 80px;
+    }
+
+    .faq-container {
+      max-width: 768px;
+      margin: 0 auto;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .faq-header .section-title {
+      margin-bottom: 16px;
+    }
+
+    .faq-header h2 {
+      margin-bottom: 24px;
+    }
+
+    .faq-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .faq-trigger {
+      width: 100%;
+      padding: 24px;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      transition: background 0.2s;
+    }
+
+    .faq-trigger:hover {
+      background: rgba(76, 215, 246, 0.05);
+    }
+
+    .faq-trigger.active {
+      background: rgba(76, 215, 246, 0.1);
+    }
+
+    .faq-chevron {
+      width: 12px;
+      height: 7.4px;
+      transition: transform 0.3s;
+    }
+
+    .faq-trigger.active .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 24px 24px 24px;
+      color: var(--text-secondary);
+      font-size: 16px;
+      display: none;
+      animation: slideDown 0.3s ease-out;
+    }
+
+    .faq-answer.active {
+      display: block;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ₹49 CONVERSION SECTION */
+    .conversion-section {
+      background: var(--bg-dark);
+      padding: 96px 24px;
+      margin-top: 80px;
+    }
+
+    .conversion-box {
+      background: var(--bg-card);
+      padding: 64px;
+      border-radius: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      max-width: 896px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .conversion-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .conversion-header .badge {
+      display: inline-block;
+      margin-bottom: 16px;
+      background: rgba(76, 215, 246, 0.1);
+      color: var(--text-accent);
+    }
+
+    .conversion-header h2 {
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .conversion-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      background: var(--bg-input);
+      padding: 24px;
+      border-radius: 16px;
+      margin-bottom: 40px;
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .checklist-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .checklist-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      color: var(--text-primary);
+      font-size: 16px;
+    }
+
+    .checklist-item::before {
+      content: '✓';
+      color: var(--text-accent);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .price-section {
+      background: var(--bg-dark);
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .price-amount {
+      font-size: 56px;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--text-accent) 0%, #adc6ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .form-group input {
+      padding: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--text-accent);
+      background: rgba(76, 215, 246, 0.05);
+    }
+
+    .form-group input::placeholder {
+      color: var(--text-secondary);
+      opacity: 0.7;
+    }
+
+    .btn-submit {
+      background: linear-gradient(90deg, #06b6d4 0%, #4cd7f6 50%, #acedff 100%);
+      color: #003640;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .form-message {
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: none;
+      margin-top: 8px;
+    }
+
+    .form-message.success {
+      background: rgba(76, 215, 246, 0.1);
+      color: var(--text-accent);
+      display: block;
+    }
+
+    .form-message.error {
+      background: rgba(255, 180, 171, 0.1);
+      color: var(--accent-red);
+      display: block;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-dark);
+      padding: 64px 24px;
+      margin-top: 80px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section li {
+      margin-bottom: 12px;
+    }
+
+    .footer-section a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-section a:hover {
+      color: var(--text-accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--text-secondary);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header {
+        height: auto;
+        padding: 12px 24px;
+      }
+
+      .header-container {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 12px;
+      }
+
+      main {
+        margin-top: 0;
+        padding-top: 80px;
+      }
+
+      .hero {
+        padding: 48px 24px;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .webinar-details {
+        grid-template-columns: 1fr;
+      }
+
+      .conversion-split {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .pillars,
+      .category-cards {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <span>▶</span> Aman Verma
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#webinar">Webinar</a>
+        <a href="#youtube">YouTube</a>
+        <a href="#faq">FAQs</a>
+      </nav>
+      <button class="cta-button" onclick="document.getElementById('form-section').scrollIntoView({behavior:'smooth'})">
+        Join Webinar – ₹49
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <!-- LEFT COLUMN -->
+        <div class="hero-left">
+          <div class="live-badge">LIVE MASTERCLASS REGISTRATION OPEN</div>
+          <h1>Learn Tech. <span class="gradient-text">Build Skills.</span> Stay Ahead.</h1>
+          <p class="subtitle">Practical tech knowledge explained in a simple way.</p>
+          <p class="description">Confused by complicated tech concepts? You're not alone. Aman Verma breaks down technology, tools, and practical skills through easy-to-follow YouTube videos and live online webinars.</p>
+          <div class="price-highlight">Join the next live webinar for just ₹49.</div>
+          <div class="hero-buttons">
+            <button class="btn-primary" onclick="document.getElementById('form-section').scrollIntoView({behavior:'smooth'})">
+              → Join the Webinar – ₹49
+            </button>
+            <button class="btn-secondary">
+              ▶ Watch on YouTube
+            </button>
+          </div>
+          <div class="trust-copy">✓ Learn something useful. Ask questions. Get answers directly.</div>
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-value">420K+</div>
+              <div class="stat-label">Subscribers</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">12,000+</div>
+              <div class="stat-label">Students Taught</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">4.9★</div>
+              <div class="stat-label">Avg. Rating</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="hero-right">
+          <div class="hero-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=416&h=416&fit=crop" alt="Aman Verma">
+            <div class="hero-card-bottom">
+              <div class="hero-card-name">Aman Verma</div>
+              <div class="hero-card-title">Lead Architect & Tech Mentor</div>
+              <div class="hero-card-tags">
+                <span class="tag">AI / WEB</span>
+                <span class="tag">NEXT.JS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEBINAR INFO SECTION -->
+    <section class="webinar-section" id="webinar">
+      <div class="container">
+        <div class="section-title">LIVE INTERACTIVE MASTERCLASSES</div>
+        <h2>Learn It Live. Ask Questions. Get Clear Answers.</h2>
+        <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 64px; max-width: 768px;">
+          Watching videos is great. But sometimes you need to ask a question and get an answer right away. That's exactly what these live webinars are for.
+          <br><br>
+          Each webinar focuses on a specific technology topic with practical examples, real code architecture, and live interaction where we untangle complex edge cases together.
+        </p>
+
+        <!-- 4 PILLARS -->
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">📍</div>
+            <h3>Focused Learning</h3>
+            <p>No unnecessary theory. Each webinar focuses on one topic and gets straight to the useful stuff.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">⚡</div>
+            <h3>Simple Explanations</h3>
+            <p>Complex technology concepts are explained in a way that's easy to understand—even if you're just getting started.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">💬</div>
+            <h3>Live Q&A</h3>
+            <p>Have a question? Ask it during the session and get a chance to discuss it live.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🎯</div>
+            <h3>Practical Knowledge</h3>
+            <p>Learn things that you can experiment with and use beyond the webinar.</p>
+          </div>
+        </div>
+
+        <!-- UPCOMING WEBINAR CARD -->
+        <div class="upcoming-webinar">
+          <div class="upcoming-webinar-header">
+            <span class="badge badge-orange">UPCOMING WEBINAR</span>
+            <span class="badge badge-gray">Interactive Session #48</span>
+          </div>
+          <h2>Building with Modern AI APIs & Fullstack Tools in 2026</h2>
+          <p style="color: var(--text-secondary); margin: 16px 0;">Break past hype and learn practical implementation. We will connect production-grade LLMs to Next.js fullstack endpoints, build retrieval pipelines, and deploy with edge latency optimization.</p>
+
+          <div class="webinar-details">
+            <div>
+              <div class="detail-item">
+                <div>
+                  <h4>DATE</h4>
+                  <p>Sunday, April 26, 2026</p>
+                </div>
+              </div>
+              <div class="detail-item">
+                <div>
+                  <h4>TIME</h4>
+                  <p>6:00 PM – 7:30 PM IST</p>
+                </div>
+              </div>
+              <div class="detail-item">
+                <div>
+                  <h4>MODE</h4>
+                  <p>Online (Live Zoom + Discord)</p>
+                </div>
+              </div>
+              <div style="margin-top: 16px; display: flex; gap: 16px; flex-wrap: wrap;">
+                <span style="color: var(--text-secondary); font-size: 14px;">✓ Live code walkthrough</span>
+                <span style="color: var(--text-secondary); font-size: 14px;">✓ Downloadable cheat-sheet</span>
+                <span style="color: var(--text-secondary); font-size: 14px;">✓ Verified session certificate</span>
+              </div>
+            </div>
+
+            <div class="webinar-callout">
+              <div style="text-align: center; margin-bottom: 16px;">
+                <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 8px;">TOTAL INVESTMENT</div>
+                <div class="price-display">₹49</div>
+              </div>
+              <div class="seat-bar">
+                <div class="seat-label">
+                  <span>Seats filling fast</span>
+                  <span style="color: var(--accent-red);">Only 18 seats remaining</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill"></div>
+                </div>
+              </div>
+              <button class="btn-reserve" onclick="document.getElementById('form-section').scrollIntoView({behavior:'smooth'})">
+                Reserve My Seat – ₹49
+              </button>
+              <p style="text-align: center; color: var(--text-secondary); font-size: 14px; margin-top: 16px;">Limited seats available for a better interactive experience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- YOUTUBE ARCHIVE SECTION -->
+    <section class="youtube-section" id="youtube">
+      <div class="container">
+        <div class="youtube-header">
+          <div class="youtube-text">
+            <div class="section-title">FREE LEARNING VAULT</div>
+            <h2>Already Watching on YouTube?</h2>
+            <p style="color: var(--text-secondary); font-size: 20px; margin-bottom: 16px;">You can find plenty of free tech content on the channel.</p>
+            <p style="color: var(--text-secondary); font-size: 16px;">From technology tutorials and useful tools to practical tips and educational videos, the channel is built around one simple idea: <strong>Make technology easier to understand.</strong></p>
+          </div>
+          <button class="btn-youtube">▶ Visit YouTube Channel 420K+</button>
+        </div>
+
+        <div class="category-cards">
+          <div class="category-card">
+            <div class="category-preview">
+              <div class="category-code">> npx create-next-app@latest<br>Compiling edge telemetry...</div>
+              <div class="category-views">124K views ↗</div>
+            </div>
+            <div class="category-info">
+              <h3>Latest Videos</h3>
+              <p>Deep dive into developer tooling, Next.js architecture, and cloud workflows.</p>
+            </div>
+          </div>
+          <div class="category-card">
+            <div class="category-preview">
+              <div class="category-code">export async function<br>handleAuthPipeline()</div>
+              <div class="category-views">310K views ↗</div>
+            </div>
+            <div class="category-info">
+              <h3>Tech Tutorials</h3>
+              <p>Step-by-step programming and web development guides taught from scratch.</p>
+            </div>
+          </div>
+          <div class="category-card">
+            <div class="category-preview">
+              <div class="category-code">Cmd + Shift + P</div>
+              <div class="category-views">89K views ↗</div>
+            </div>
+            <div class="category-info">
+              <h3>Tips & Tricks</h3>
+              <p>Productivity shortcuts, VS Code mastery, and developer terminal superpowers.</p>
+            </div>
+          </div>
+          <div class="category-card">
+            <div class="category-preview">
+              <div style="text-align: center; color: var(--text-accent); font-size: 20px;">● ······· ●</div>
+              <div class="category-views">240K views ↗</div>
+            </div>
+            <div class="category-info">
+              <h3>Educational Content</h3>
+              <p>Demystifying how LLMs, vectors, APIs, and databases work under the hood.</p>
+            </div>
+          </div>
+        </div>
+
+        <p style="text-align: center; color: var(--text-secondary); margin-top: 40px;">Subscribe to stay updated with new videos and upcoming live sessions.</p>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section" id="faq">
+      <div class="faq-container">
+        <div class="faq-header">
+          <div class="section-title">GOT QUESTIONS?</div>
+          <h2>Frequently Asked Questions</h2>
+          <p style="color: var(--text-secondary);">Everything you need to know about the webinars, access, and learning process.</p>
+        </div>
+
+        <div class="faq-items">
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFAQ(event)">
+              Who is this webinar for?
+              <svg class="faq-chevron" viewBox="0 0 12 7.4" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-answer">Anyone interested in learning practical technology and web development concepts. Whether you're a beginner looking to start your tech journey or an experienced developer wanting to stay updated with the latest tools and practices, this webinar is designed for you.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFAQ(event)">
+              Do I need to be technically advanced to attend?
+              <svg class="faq-chevron" viewBox="0 0 12 7.4" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-answer">Not at all. The webinar is designed to be accessible to people at all levels. Complex concepts are broken down into simple, easy-to-understand explanations. If you can use a computer and are curious about technology, you're ready to attend.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFAQ(event)">
+              How much does the webinar cost?
+              <svg class="faq-chevron" viewBox="0 0 12 7.4" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-answer">Just ₹49! That's a one-time payment with no recurring charges or hidden fees. You get instant access to the webinar details immediately after purchase.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFAQ(event)">
+              Is the webinar conducted online?
+              <svg class="faq-chevron" viewBox="0 0 12 7.4" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-answer">Yes, it's entirely online. You can join from the comfort of your home via Zoom. The session will also be available on Discord for real-time interaction and Q&A.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFAQ(event)">
+              Will I be able to ask questions?
+              <svg class="faq-chevron" viewBox="0 0 12 7.4" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-answer">Absolutely! Live Q&A is a core part of every webinar. You can ask questions throughout the session, and Aman will address them in real-time, making it an interactive learning experience.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFAQ(event)">
+              How will I receive the webinar link?
+              <svg class="faq-chevron" viewBox="0 0 12 7.4" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-answer">After payment, you'll receive the webinar link via email and WhatsApp. Make sure to provide the correct contact details during registration.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFAQ(event)">
+              What if I can't attend the webinar live?
+              <svg class="faq-chevron" viewBox="0 0 12 7.4" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-answer">The webinar will be recorded and made available to all registrants. You can watch it anytime after the live session at your own pace.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFAQ(event)">
+              Can I get a refund after purchasing the webinar?
+              <svg class="faq-chevron" viewBox="0 0 12 7.4" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-answer">Yes, we offer a 100% refund within 24 hours of purchase if you're not satisfied. No questions asked. After that, once the webinar has started, refunds are not available.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFAQ(event)">
+              Can I attend from my phone?
+              <svg class="faq-chevron" viewBox="0 0 12 7.4" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-answer">Yes, you can join the webinar from your phone, tablet, or computer. Just download the Zoom app and use the link provided. The experience will be optimized for mobile viewing.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFAQ(event)">
+              Where can I watch the free content?
+              <svg class="faq-chevron" viewBox="0 0 12 7.4" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-answer">All free content is available on the YouTube channel. Subscribe there to stay updated with new videos, tutorials, tips, and educational content.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ₹49 CONVERSION SECTION WITH FORM -->
+    <section class="conversion-section" id="form-section">
+      <div class="conversion-box">
+        <div class="conversion-header">
+          <span class="badge" style="background: rgba(76, 215, 246, 0.1); color: var(--text-accent); padding: 4px 16px; border-radius: 9999px; display: inline-block; margin-bottom: 16px;">UNBEATABLE VALUE</span>
+          <h2>One Webinar. One Topic. ₹49.</h2>
+          <p style="color: var(--text-accent); font-size: 20px; margin-bottom: 16px;">Good learning doesn't always need to be expensive.</p>
+          <p style="color: var(--text-secondary); font-size: 18px;">For just ₹49, you can join the upcoming live webinar, learn directly from Aman Verma, and participate in the live Q&A.</p>
+        </div>
+
+        <div class="conversion-split">
+          <div class="checklist">
+            <div class="checklist-label">EVERYTHING INCLUDED WITH YOUR PASS:</div>
+            <div class="checklist-item">Access to the live online webinar</div>
+            <div class="checklist-item">Step-by-step explanation of the topic</div>
+            <div class="checklist-item">Practical examples and demonstrations</div>
+            <div class="checklist-item">Opportunity to ask questions</div>
+            <div class="checklist-item">Live interaction during the session</div>
+          </div>
+
+          <div class="price-section">
+            <div class="price-label">TOTAL INVESTMENT</div>
+            <div class="price-amount">₹49</div>
+
+            <form id="webinar-form" onsubmit="submitForm(event)">
+              <div class="form-container">
+                <div class="form-group">
+                  <label for="name">Full Name *</label>
+                  <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address *</label>
+                  <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number *</label>
+                  <input type="tel" id="phone" name="phone" placeholder="9999999999" required>
+                </div>
+              </div>
+              <button type="submit" class="btn-submit" id="submit-btn">Join Webinar for ₹49</button>
+              <div class="form-message" id="form-message"></div>
+            </form>
+
+            <p style="text-align: center; color: var(--text-secondary); font-size: 12px; margin-top: 16px;">Instant receipt & invite link</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border);">
+          <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 8px;">₹49 only. No complicated plans. No monthly subscription.</p>
+          <p style="color: var(--text-secondary); font-size: 14px;">After payment, you'll receive the webinar joining details on your registered email/WhatsApp.</p>
+          <div style="display: flex; gap: 16px; justify-content: center; margin-top: 16px; font-size: 12px; flex-wrap: wrap;">
+            <span style="color: var(--text-secondary); display: flex; align-items: center; gap: 4px;">🔒 256-Bit Encrypted</span>
+            <span style="color: var(--text-secondary); display: flex; align-items: center; gap: 4px;">💳 UPI & Cards</span>
+            <span style="color: var(--text-secondary); display: flex; align-items: center; gap: 4px;">🏦 NetBanking Supported</span>
+            <span style="color: var(--text-secondary); display: flex; align-items: center; gap: 4px;">⚡ Instant Confirmation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div>
+          <h3 style="font-size: 20px; text-transform: none; margin-bottom: 16px;">Aman Verma <span style="background: #1c1f29; padding: 2px 8px; border-radius: 4px; font-size: 13px; color: var(--text-accent); margin-left: 8px;">EDU / TECH</span></h3>
+          <p style="color: var(--text-secondary); margin-bottom: 16px;">Making technology easier to understand, one video at a time.</p>
+          <a href="mailto:hello@amanverma.tech" style="color: var(--text-accent); text-decoration: none; display: flex; gap: 4px; align-items: center;">✉ hello@amanverma.tech</a>
+        </div>
+        <div class="footer-section">
+          <h3>NAVIGATION</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#webinar">Upcoming Webinar</a></li>
+            <li><a href="#youtube">YouTube Archive</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>COMMUNITY & SOCIAL</h3>
+          <ul>
+            <li><a href="#">YouTube ↗</a></li>
+            <li><a href="#">Instagram ↗</a></li>
+            <li><a href="#">LinkedIn ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Aman Verma. All rights reserved.</p>
+        <div style="display: flex; gap: 24px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5zoAXyRTWlEL-2UOT3fFPPx8SIzY3u2b97g8DlT4JYjiquIKaZVfhovkwQZtX5ZYm/exec';
+
+    function toggleFAQ(event) {
+      const trigger = event.currentTarget;
+      const item = trigger.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const isActive = item.classList.contains('active');
+
+      // Close other items
+      document.querySelectorAll('.faq-item.active').forEach(el => {
+        if (el !== item) {
+          el.classList.remove('active');
+          el.querySelector('.faq-trigger').classList.remove('active');
+          el.querySelector('.faq-answer').classList.remove('active');
+        }
+      });
+
+      // Toggle current item
+      item.classList.toggle('active');
+      trigger.classList.toggle('active');
+      answer.classList.toggle('active');
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const submitBtn = document.getElementById('submit-btn');
+      const message = document.getElementById('form-message');
+
+      if (!name || !email || !phone) {
+        showError('Please fill in all fields.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      message.textContent = '';
+      message.className = 'form-message';
+
+      // Build URL with query params
+      const url = SCRIPT_URL + '?' + new URLSearchParams({ name, email, phone });
+
+      // Fetch with GET, no-cors, no response checking
+      fetch(url, { method: 'GET', mode: 'no-cors' })
+        .then(() => showSuccess())
+        .catch(() => showError('Network error. Please try again.'));
+
+      function showSuccess() {
+        message.textContent = '✓ Success! Check your email for webinar details.';
+        message.className = 'form-message success';
+        document.getElementById('webinar-form').reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Join Webinar for ₹49';
+      }
+
+      function showError(text) {
+        message.textContent = '✗ ' + text;
+        message.className = 'form-message error';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Join Webinar for ₹49';
+      }
+    }
+  </script>
+</body>
+</html>
